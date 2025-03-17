@@ -1,0 +1,78 @@
+.colorado {
+    width: 500px;
+    height: 500px;
+}
+
+h2::before {
+    content: "Esta cor é neutra!";
+}
+
+@media screen and (max-device-width: 420px) {
+    .colorado {
+        background-color: gray;
+    }
+
+    h2::before {
+        content: "Esta cor é cinza!";
+    }
+}
+
+@media screen and (min-device-width: 421px) and (max-device-width: 768px) {
+    .colorado {
+        background-color: orange;
+    }
+
+    h2::before {
+        content: "Esta cor é laranja!";
+    }
+}
+
+@media screen and (min-device-width: 769px) and (max-device-width: 1024px) {
+    .colorado {
+        background-color: pink;
+    }
+
+    h2::before {
+        content: "Esta cor é rosa!";
+    }
+}
+
+@media screen and (min-device-width: 1025px) and (max-device-width: 1080px) {
+    .colorado {
+        background-color: red;
+    }
+
+    h2::before {
+        content: "Esta cor é vermelha!";
+    }
+}
+
+@media screen and (min-device-width: 1081px) and (max-device-width: 1366px) {
+    .colorado {
+        background-color: blue;
+    }
+
+    h2::before {
+        content: "Esta cor é azul!";
+    }
+}
+
+@media screen and (min-device-width: 1367px) and (max-device-width: 1920px) {
+    .colorado {
+        background-color: yellow;
+    }
+
+    h2::before {
+        content: "Esta cor é amarela!";
+    }
+}
+
+@media screen and (min-device-width: 1921px) {
+    .colorado {
+        background-color: green;
+    }
+
+    h2::before {
+        content: "Esta cor é verde!";
+    }
+}
