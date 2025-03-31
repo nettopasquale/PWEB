@@ -1,34 +1,40 @@
-let jogador1;
-let jogador2; //computador
-let verdade = true;
+const button = document.querySelector("button");
+let apertado = confirm("Vamos apertar o botão?");
 
-let arrayEscolhas = ["pedra", "papel", "tesoura"]; // 
+button.addEventListener("click", e => {
+    e.preventDefault;
 
-alert("Vamos brincar de pedra, papel e tesoura!")
+    if (apertado) {
+        alert("Vamos brincar de pedra, papel e tesoura!");
+        let jogador = parseInt(prompt("Digite uma nas opções na tela: "));
+        console.log(jogador)
+            
+        let computador = (Math.random() * (2 - 0) + 0).toFixed();
+        console.log(computador)
 
-while(verdade){
-    let escolhaJogador1 = parseInt(prompt("Digite uma nas opções: "));
-    
-    let escolhaJogador2 = Math.floor(Math.random() * 3); //int entre 0 e 2
-    console.log(escolhaJogador2)
-    
-    if(arrayEscolhas[escolhaJogador1] == arrayEscolhas[escolhaJogador2]){
-        alert("Empate!");
-    }
-    else if(arrayEscolhas[escolhaJogador1] != arrayEscolhas[escolhaJogador2]){
-        if(arrayEscolhas[escolhaJogador1] == 0 && arrayEscolhas[escolhaJogador2] == 1
-            || arrayEscolhas[escolhaJogador1] == 1 && arrayEscolhas[escolhaJogador2] == 2
-            || arrayEscolhas[escolhaJogador1] == 2 && arrayEscolhas[escolhaJogador2] == 0
-        ){
-            alert("Você perdeu!");
+        if (jogador > 2 || jogador == NaN) {
+            resultado("Opção inválida!");
+        }
+            
+        else if ((jogador == 0 && computador == 1) ||
+            (jogador == 1 && computador == 2) ||
+            (jogador == 2 && computador == 0)) {
+            
+            resultado("Você perdeu!");
+        }
+        else if (jogador == computador) {
+            resultado("Empate!");
         }
         else{
-            alert("Você venceu!")
+            resultado("Você venceu!");
         }
+        
     }
-    else{
-        alert("valor inválido! Digite uma opcao correta")
+    else {
+        alert("Vamos lá, aperte o botão...");
     }
+})
 
+function resultado(mensagem) {
+    document.querySelector("span").innerHTML = mensagem;
 }
-
