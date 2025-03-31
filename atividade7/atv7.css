@@ -1,0 +1,10 @@
+.titulo{
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.container_jogo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
