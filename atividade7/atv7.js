@@ -9,7 +9,7 @@ button.addEventListener("click", e => {
         let jogador = parseInt(prompt("Digite uma nas opções na tela: "));
         console.log(jogador)
             
-        let computador = (Math.random() * (2 - 0) + 0).toFixed();
+        let computador = (Math.random() * 2).toFixed();
         console.log(computador)
 
         if (jogador > 2 || jogador == NaN) {
