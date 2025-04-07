@@ -1,0 +1,33 @@
+.container_form{
+  text-align: center;
+  margin: 40px;
+}
+.container_form form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.container_form-sexo{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.container_form-opiniao{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container_form button{
+    text-align: center;
+    border-radius: 10px;
+    background-color: blue;
+    color: #fff;
+    border: none;
+    width: 200px;
+    height: 50px;
+  }
