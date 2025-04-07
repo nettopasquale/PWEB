@@ -3,8 +3,27 @@
     margin-bottom: 100px;
 }
 
+.outros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.outros button{
+    width: 20%;
+}
+
 .container_jogo{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin-top: 50px;
+}
+
+.mensagens{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 30px 30px;
 }
