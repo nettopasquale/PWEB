@@ -82,16 +82,15 @@ function palindromo(str) {
     let temp = str.toString().toUpperCase();
     console.log(temp)
     let len = Math.floor(temp.length / 2);
-    let respostaPalindromo = "";
 
     for (let i = 0; i < len; i++){
         if (temp[i] == temp[temp.length - i - 1])
-            respostaPalindromo = `${temp} É Palíndromo!`;
+            document.getElementById("respostaPalindromo").innerHTML = `${temp} É Palíndromo!`;
         else
-            respostaTriangulo =`${temp} Não é Palíndromo!`;
+        document.getElementById("respostaPalindromo").innerHTML = `${temp} Não É Palíndromo!`;
     }
 
-    document.getElementById("respostaPalindromo").innerHTML = `${respostaPalindromo}`;
+    
 
 }
 
