@@ -1,0 +1,15 @@
+.body{
+    margin: 10px;
+}
+
+.container-Maior, 
+.container-crescente, 
+.container-palindromo,
+.container-triangulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 50px;
+}
