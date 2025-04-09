@@ -1,5 +1,3 @@
-const nome = document.getElementById("fname");
-const sobrenome = document.getElementById("lname");
 const idade = document.getElementById("age");
 const sexo = document.getElementById('sex');
 const avaliacao = document.getElementById("opiniao");
@@ -42,7 +40,8 @@ function mediaIdade() {
         somaIdade += forms[i].idade;
     }
 
-    return window.alert(`A média das idades é de: ${somaIdade / forms.length}`);
+    document.getElementById("mostrarMedia").innerHTML = `A média das idades é de: ${somaIdade / forms.length}`;
+
 
 }
 
@@ -53,8 +52,7 @@ function idadeMaior() {
             max = forms[i].idade;
         }
     }
-
-    return window.alert(`A idade da pessoa mais velha é: ${max}`);
+    document.getElementById("mostrarMaior").innerHTML = `A idade da pessoa mais velha é: ${max}`;
 }
 
 function idadeMenor() {
@@ -65,7 +63,7 @@ function idadeMenor() {
         }
     }
 
-    return window.alert(`A idade da pessoa mais nova é: ${min}`);
+    document.getElementById("mostrarMenor").innerHTML = `A idade da pessoa mais nova é: ${min}`;
 }
 
 function avalPessimo(){
@@ -76,8 +74,7 @@ function avalPessimo(){
             countPessimo++;
         }
     }
-
-    return window.alert(`O total de avaliações péssimas foi de ${countPessimo}`);
+    document.getElementById("mostrarPessimo").innerHTML = `O total de avaliações péssimas foi de ${countPessimo}`;
 }
 
 function avalPorcenBomOtimo(){
@@ -96,12 +93,16 @@ function avalPorcenBomOtimo(){
 
     let porcentagemBom = (((countB) / forms.length ) * 100).toFixed(2)
     let porcentagemOtimo = (((countO) / forms.length) * 100).toFixed(2)
-    
-    return window.alert(`A porcentagem de avaliações Boas foi de ${porcentagemBom}%, enquanto que a porcentagem de avaliações Ótimas foi de ${porcentagemOtimo}%.`)
+
+    document.getElementById("mostrarBomOtimo").innerHTML = `A porcentagem de avaliações Boas foi de ${porcentagemBom}%, 
+    enquanto que a porcentagem de avaliações Ótimas foi de ${porcentagemOtimo}%.`;
+
 }
 
 function qtdTotalSexo() {
-    let countH, countM, countO  = 0;
+    let countH = 0;
+    let countM = 0;
+    let countO  = 0;
 
     for (let i = 0; i < forms.length; i++){
         console.log(forms[i].sexo)
@@ -114,5 +115,6 @@ function qtdTotalSexo() {
         }
     }
 
-    return window.alert(`O número total de homens foi de ${countH}. De mulheres foi de ${countM}. E outros foi de ${countO}`);
+    document.getElementById("mostrarSexo").innerHTML = `O número total de homens foi de ${countH}. 
+    De mulheres foi de ${countM}. E outros foi de ${countO}`;
 }
