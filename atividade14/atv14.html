@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST" 
+    name="formTranform" id="formTransform" 
+    onsubmit="return TransformText();">
+        <input 
+        type="text" id="idNome" 
+        name="idNome" placeholder="Digite seu nome" 
+        size="52" maxlength="150">
+
+        <h3>Transforme o texto: </h3>
+                
+        <input 
+        type="radio" 
+        name="transform"
+        value="maiusculo"
+        id="optionMaiuscula">
+        <label for="maiusculo">MAIÚSCULO</label>
+                
+        <input 
+        type="radio" 
+        name="transform" 
+        value="minusculo"
+        id="optionMinuscula">
+        <label for="minusculo">minúsculo</label>
+        <!-- <button id="transform" onclick="TransformText()">Transformar</button> -->
+    </form>
+    <script src="atv14.js"></script>
+</body>
+</html>
