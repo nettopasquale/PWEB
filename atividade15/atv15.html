@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 15</title>
+</head>
+<body style="background-color: aqua; padding: 0; margin: 0;">
+    <form action="" name="myForm" id="form" 
+    style="display: flex; flex-direction: column; max-width: 600px;
+    justify-content: center; align-items: center;">
+        <h2>Formulário Principal</h2>
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="idnome">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="idemail">
+
+        <label for="comentario">Comentário</label>
+        <input 
+        type="text" 
+        name="comentario" 
+        id="idcomentario"
+        minlength="20"
+        size="50"
+        height="100">
+
+        <h2>Pesquisa</h2>
+        <p>Primeira vez na página?</p>
+        <input type="radio" name="option" value="sim" id="idSim" required>
+        <label for="sim">Sim</label>
+        <input type="radio" name="option" value="nao" id="idNao" required>
+        <label for="nao">Não</label>
+
+        <button id="enviar">Enviar</button>
+        <button id="limpar">Limpar</button>
+    </form>
+    <script src="./atv15.js"></script>
+</body>
+</html>
