@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação</title>
+</head>
+<body>
+    <p id="mensagem">Deseja abrir a página do curso selecionado?</p>
+    <button id="confirmar">Confirmar</button>
+    <button id="cancelar">Cancelar</button>
+    <script>
+        //pega os parametros na página atual
+        const urlParams = new URLSearchParams(window.location.search);
+        const curso = urlParams.get("curso");
+        
+        //lista de urls dos cursos da fatec
+        const cursosFatec = {
+            ads: "ads.html",
+            ea: "ea.html",
+            fm: "fm.html",
+            ge: "ge.html",
+            gq: "gq.html",
+            log: "log.html",
+            ma: "ma.html",
+            mada: "mada.html",
+            pol: "pol.html",
+            pm: "pm.html",
+            sb: "sb.html",
+            pme: "pme.html"
+        }
+
+        console.log("Curso recebido:", curso);
+        console.log("URL da página:", window.location.href);
+
+
+        document.getElementById("confirmar").addEventListener("click", ()=>{
+            if(cursosFatec[curso]){
+                window.open(cursosFatec[curso], `_blank`, `width=600, height=300`);
+            }
+            else{
+                window.alert("Url ou curso não encontrado!");
+            }
+            window.close();
+        });
+
+        document.getElementById("cancelar").addEventListener("click", ()=>{
+            window.close();
+        })
+    </script>
+</body>
+</html>

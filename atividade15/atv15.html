@@ -3,37 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="atv15.css">
     <title>Atividade 15</title>
 </head>
-<body style="background-color: aqua; padding: 0; margin: 0;">
-    <form action="" name="myForm" id="form" 
-    style="display: flex; flex-direction: column; max-width: 600px;
-    justify-content: center; align-items: center;">
+<body>
+    <form action="" name="myForm" id="form" class="formContainer">
         <h2>Formulário Principal</h2>
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="idnome">
+        <input type="text" name="nome" id="idnome" value="">
 
         <label for="email">Email</label>
-        <input type="email" name="email" id="idemail">
+        <input type="email" name="email" id="idemail" value="">
 
         <label for="comentario">Comentário</label>
-        <input 
+        <textarea  
         type="text" 
         name="comentario" 
         id="idcomentario"
-        minlength="20"
-        size="50"
-        height="100">
+        value=""
+        rows="5"
+        cols="50"
+        class="formComentario">
+        </textarea>
 
-        <h2>Pesquisa</h2>
-        <p>Primeira vez na página?</p>
-        <input type="radio" name="option" value="sim" id="idSim" required>
-        <label for="sim">Sim</label>
-        <input type="radio" name="option" value="nao" id="idNao" required>
-        <label for="nao">Não</label>
+        <div class="formTitles">
+            <h2>Pesquisa</h2>
+            <p>Primeira vez na página?</p>
+        </div>
 
-        <button id="enviar">Enviar</button>
-        <button id="limpar">Limpar</button>
+        <div class="formRadios">
+            <input type="radio" name="option" value="sim" id="idSim" required>
+            <label for="sim">Sim</label>
+            <input type="radio" name="option" value="nao" id="idNao" required>
+            <label for="nao">Não</label>
+        </div>
+        <div class="formButtons">
+            <button id="enviar">Enviar</button>
+            <button id="limpar" type="reset">Limpar</button>
+        </div>
     </form>
     <script src="./atv15.js"></script>
 </body>
