@@ -1,17 +1,25 @@
-import React from 'react'
+import {Link} from 'react-router-dom';
 
 export default function BotaoAcao({
     children,
     onClick,
-    type = "button",
-    className = "" }) {
+    to }) {
+    const baseClass =
+    "px-40 py-4 mt-6 text-3xl font-semibold text-white bg-green-700 rounded-lg hover:bg-green-800 transition duration-200";
+  
+  if (to) {
+    return (
+      <Link to={to} className={baseClass}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={`bg-green-700 text-white text-xl font-bold px-8 py-4 rounded-lg shadow-md hover:bg-green-800 transition-all duration-200 ${className}`}
-    >
+    <button onClick={onClick} className={baseClass}>
       {children}
     </button>
-  )
+  );
+  
+
 };
