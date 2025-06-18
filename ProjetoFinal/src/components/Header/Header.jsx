@@ -1,5 +1,6 @@
 import {Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen,setIsMenuOpen] = useState(false);
@@ -29,7 +30,9 @@ const Header = () => {
 
         {/* Navegação + botões (desktop) */}
         <div className="hidden md:flex items-center gap-6">
-          <nav className="flex gap-4 text-white text-base font-medium">
+            <nav className="flex gap-4 text-white text-base font-medium">
+              <Link to="/" className="hover:text-red-500 text-2xl transition">Home
+              </Link>
             <a href="#favoritos" className="hover:text-red-500 text-2xl transition">Meus Favoritos</a>
             <a href="#filmes" className="hover:text-red-500 text-2xl transition">Filmes</a>
             <a href="#series" className="hover:text-red-500 text-2xl transition">Séries</a>

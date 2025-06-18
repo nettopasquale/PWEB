@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import userRouters from "./routes/user.routes.js";
+import movieRouters from "./routes/filmes.routes.js";
 
 dotenv.config();
 
@@ -10,9 +10,22 @@ const app = express();
 console.log(process.env.PORT);
 
 
-let corsOptions = {
-  origin: "http://localhost:5137"
-};
+let corsPermitidos = [
+  "http://localhost:5000",
+  "http://localhost:5000",
+  "https://milone-flix.vercel.app/"
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || corsPermitidos.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Não permitido pelo Cors"));
+    }
+  },
+  credentials:true
+}
 
 //middlewere
 app.use(cors(corsOptions));
@@ -31,7 +44,7 @@ try {
 }
 
 
-app.use("/", userRouters);
+app.use("/", movieRouters);
 
 app.use((req, res, next) => {
   console.log("rota acessada: ", req.method, req.originalUrl);
