@@ -10,7 +10,7 @@ const movieModel = new mongoose.Schema({
     avaliacao: { type: Number, required: true },
     classificacao: { type: String, required: true },
     sinopse: { type: String, required: true },
-    imagemUrl: { type: String},
+    imagem: { type: String},
 }, { timestamps: true });
 
 const Movie = mongoose.model("Movie", movieModel);

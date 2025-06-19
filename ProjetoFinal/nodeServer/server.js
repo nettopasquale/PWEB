@@ -11,9 +11,10 @@ console.log(process.env.PORT);
 
 
 let corsPermitidos = [
-  "http://localhost:5000",
-  "http://localhost:5000",
-  "https://milone-flix.vercel.app/"
+  "http://localhost:5000", //API TMDB
+  "http://localhost:5173", //React FrontEnd
+  "http://localhost:8080", // Server local (teste)
+  "https://milone-flix.vercel.app/" //Produção
 ];
 
 const corsOptions = {
@@ -27,12 +28,14 @@ const corsOptions = {
   credentials:true
 }
 
-//middlewere
+
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
-app.use(express.json());
+// limite de 10mb para imagens
+app.use(express.json({limit: '10mb'}));
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
+//extender limite de 10mb
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 //conexão MongoDB
 try {

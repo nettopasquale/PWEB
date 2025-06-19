@@ -1,17 +1,32 @@
-export default function InputField({ label, name, placeholder = "" }) {
-    return (
-        <div>
-          <label htmlFor={name} className="block mb-2 text-gray-700 font-bold text-white">
-            {label}
-          </label>
-          <input
-            type="text"
-            id={name}
-            name={name}
-            placeholder={placeholder}
-            className="w-full p-3 border rounded-2xl bg-white"
-          />
-        </div>
-        
-    )
-};
+export default function InputField({
+  label,
+  name,
+  placeholder,
+  type,
+  register,
+  error,
+}) {
+  return (
+    <div>
+      {label && (
+        <label
+          htmlFor={name}
+          className="block mb-2 text-2xl font-bold text-white"
+        >
+          {label && (
+            <label className="text-white font-bold mb-2">{label}</label>
+          )}
+        </label>
+      )}
+      <input
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        type={type}
+         {...(register && register(name))}
+        className="w-full p-3 border rounded-2xl bg-white"
+      />
+      {error && <p className="text-red-400 text-sm">{error}</p>}
+    </div>
+  );
+}

@@ -1,12 +1,17 @@
-
+import AvaliacaoEstrelas from "../AvaliacaoEstrelas/AvaliacaoEstrelas";
 import InputModal from "../InputModal/InputModal";
 
 export default function ModalFilme({ filme, onClose }) {
   if (!filme) return null;
 
+  const isTMDB = filme.id && typeof filme.id === "number";
+  //Dividir por 2 pq a avaliação do TMDB é até 10, do meu banco é até 5
+  //Se for do meu banco n precisa fazer a divisão
+  const avaliacao = isTMDB ? (filme.avaliacao || 0) / 2 : filme.avaliacao || 0;
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-      <div className="bg-white rounded-lg p-8 max-w-4xl w-full relative overflow-y-auto max-h-[90vh]">
+      <div className="bg-white/50 rounded-lg p-8 max-w-4xl w-full relative overflow-y-auto max-h-[90vh]">
         <button
           className="absolute top-4 right-4 text-black text-xl font-bold"
           onClick={onClose}
@@ -14,18 +19,19 @@ export default function ModalFilme({ filme, onClose }) {
           &times;
         </button>
 
-        <h2 className="text-2xl font-bold mb-4">Detalhes do Filme</h2>
+        <h2 className="text-2xl text-white font-bold mb-4">
+          Detalhes do Filme
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8">
           <div className="space-y-6">
             <InputModal disabled label="Título" value={filme.titulo || ""} />
             <InputModal disabled label="Diretor" value={filme.diretor || ""} />
             <InputModal disabled label="Duração" value={filme.duracao || ""} />
-            <InputModal
-              disabled
-              label="Avaliação"
-              value={filme.avaliacao || ""}
-            />
+          <div className="block items-center gap-2">
+            <AvaliacaoEstrelas nota={avaliacao} readOnly />
+            <span className="text-white text-sm">({avaliacao.toFixed(1)} / 5)</span>
+          </div>
           </div>
           <div className="space-y-6">
             <InputModal disabled label="Ano" value={filme.ano || ""} />
@@ -40,8 +46,13 @@ export default function ModalFilme({ filme, onClose }) {
 
           <div className="space-y-6">
             {/* <InputModal disabled label="Capa" value={filme.imagem || ""} /> */}
-                      {/* Mostra a capa no campo */}
-            <label value={filme.imagem || ""} className="text-gray-500 font-bold text-2xl">Capa</label>
+            {/* Mostra a capa no campo */}
+            <label
+              value={filme.imagem || ""}
+              className="text-white font-bold text-2xl"
+            >
+              Capa
+            </label>
             {filme.imagem ? (
               <img
                 src={filme.imagem}
@@ -49,7 +60,7 @@ export default function ModalFilme({ filme, onClose }) {
                 className="w-full h-auto max-h-96 object-contain rounded"
               />
             ) : (
-              <span className="text-gray-500 text-sm text-center">
+              <span className="text-white text-sm text-center">
                 Nenhuma imagem selecionada
               </span>
             )}
@@ -57,13 +68,11 @@ export default function ModalFilme({ filme, onClose }) {
         </div>
 
         <div className="mt-6">
-          <label className="block text-gray-700 font-semibold mb-2">
-            Sinopse
-          </label>
+          <label className="block text-white font-semibold mb-2">Sinopse</label>
           <textarea
             disabled
             value={filme.sinopse || ""}
-            className="w-full h-40 p-2 border rounded resize-none"
+            className="w-full h-40 p-2 border rounded resize-none bg-white"
           />
         </div>
       </div>

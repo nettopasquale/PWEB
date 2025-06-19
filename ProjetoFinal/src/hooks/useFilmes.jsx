@@ -16,7 +16,7 @@ export default function useFilmes() {
     const fetchLocais = async () => {
       try {
         // Ajuste conforme sua rota local
-        const res = await axios.get("http://localhost:5000/api/movies");
+        const res = await axios.get("http://localhost:8080/movies");
         setFilmesLocais(res.data);
       } catch (err) {
         console.error("Erro ao buscar filmes locais:", err);

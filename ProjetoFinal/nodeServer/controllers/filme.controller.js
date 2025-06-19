@@ -18,7 +18,7 @@ export const createMovie = async (req, res) => {
         avaliacao,
         classificacao,
         sinopse,
-        imagemUrl} = req.body;
+        imagem} = req.body;
 
     try {
         const movie = new Movie({titulo,
@@ -30,10 +30,10 @@ export const createMovie = async (req, res) => {
             avaliacao,
             classificacao,
             sinopse,
-            imagemUrl
+            imagem
         });
         
-        console.log(`Este é o filme: ${movie.titulo}, ${movie.imagemUrl}, ${movie.diretor}, ${movie.ano}, ${movie.genero}, ${movie.duracao}, ${movie.elenco}, ${movie.avaliacao}, ${movie.classificacao},${movie.sinopse}`);
+        console.log(`Este é o filme: ${movie.titulo}, ${movie.imagem}, ${movie.diretor}, ${movie.ano}, ${movie.genero}, ${movie.duracao}, ${movie.elenco}, ${movie.avaliacao}, ${movie.classificacao},${movie.sinopse}`);
 
         await movie.save();
 

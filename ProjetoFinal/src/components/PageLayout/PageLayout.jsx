@@ -6,7 +6,7 @@ import bgImage from '../../../assets/imgs/bg.jpg';
 
 export default function PageLayout({children}){
   return (
-    <div className="relative min-h-screen bg-cover bg-center bg-no-repeat " style={{ backgroundImage: `url(${bgImage})` }}>
+    <div className="relative w-full min-h-screen items-center justify-center bg-cover bg-center bg-no-repeat " style={{ backgroundImage: `url(${bgImage})` }}>
         {/* Overlay escuro */}
       <div className="absolute inset-0 bg-black/90 z-0"></div>
       <div className='relative z-10 '>
