@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
 export default function AvaliacaoEstrelas({
   nota = 0,
   onChange,
-  readOnly = false }) {
+  readOnly = false,
+}) {
   const [hover, setHover] = useState(null);
-    
+
   return (
     <div className="flex">
       {[...Array(5)].map((_, index) => {
@@ -33,5 +34,5 @@ export default function AvaliacaoEstrelas({
         );
       })}
     </div>
-  )
+  );
 }

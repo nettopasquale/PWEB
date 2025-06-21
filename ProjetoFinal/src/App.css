@@ -45,6 +45,8 @@
   color: #888;
 }
 
-html, body, #root{
+html,
+body,
+#root {
   background-color: var(--bs-secondary-bg);
 }

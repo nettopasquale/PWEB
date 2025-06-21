@@ -1,15 +1,17 @@
 import BotaoAcao from "../../components/BotaoAcao/BotaoAcao";
 
-export default function Cards({ titulo,
+export default function Cards({
+  titulo,
   descricao,
   botaoTexto,
   imagem,
   reverse = false,
-  to }) {
+  to,
+}) {
   return (
     <div
       className={`w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row ${
-        reverse ? 'lg:flex-row-reverse' : ''
+        reverse ? "lg:flex-row-reverse" : ""
       } items-center justify-between gap-6`}
     >
       {/* Bloco de texto */}
@@ -31,4 +33,4 @@ export default function Cards({ titulo,
       </div>
     </div>
   );
-};
+}

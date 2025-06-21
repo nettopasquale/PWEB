@@ -23,7 +23,7 @@ export default function InputField({
         name={name}
         placeholder={placeholder}
         type={type}
-         {...(register && register(name))}
+        {...(register && register(name))}
         className="w-full p-3 border rounded-2xl bg-white"
       />
       {error && <p className="text-red-400 text-sm">{error}</p>}

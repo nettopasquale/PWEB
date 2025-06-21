@@ -1,68 +1,23 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "../../schema/schema";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import InputField from "../../components/InputField/InputField";
 import AvaliacaoEstrelas from "../../components/AvaliacaoEstrelas/AvaliacaoEstrelas";
 import BotaoAcao from "../../components/BotaoAcao/BotaoAcao";
-import axios from "axios";
+import useCadastrar from "../../hooks/useCadastrar";
 
 export default function Cadastrar() {
-  const [preview, setPreview] = useState(null); //preview da capa do filme
-  const [submitStatus, setSubmitStatus] = useState("idle"); // status inicial, sucesso e erro
-
-  //react hook com yup para controlar os dados do formulário
   const {
+    preview,
     register,
-    handleSubmit: onSubmitHookForm,
+    submitStatus,
+    avaliacao,
+    errors,
     setValue,
-    watch,
-    reset,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  //handler da mudança de estado da imagem
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview(reader.result);
-        setValue("imagem", reader.result); // NOTAR AQUI
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  //submit do formulário
-  const onSubmit = async (data) => {
-    try {
-      await axios.post("http://localhost:8080/movies", data);
-      setSubmitStatus("success"); //muda status pra sucesso
-    } catch (error) {
-      console.error("Erro ao cadastrar:", error);
-      setSubmitStatus("error"); // muda status pra erro
-    }
-  };
-
-  //uso do watch de react-hook para controlar a avaliação dos filmes
-  const avaliacao = watch("avaliacao");
-
-  const resetarFormulario = () => {
-    reset(); // do react-hook-form -> reseta os dados do formulário
-    setPreview(null); //reseta a imagem
-    setSubmitStatus("idle"); // reseta o status inicial do formulário
-  };
-
-  const navigate = useNavigate();
-  //voltar para a Home
-  const voltarParaHome = () => {
-    navigate("/"); // do react-router-dom
-  };
+    onSubmitHookForm,
+    onSubmit,
+    handleImageChange,
+    voltarParaHome,
+    resetarFormulario,
+  } = useCadastrar();
 
   return (
     <PageLayout>
